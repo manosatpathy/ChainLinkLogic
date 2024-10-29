@@ -6,6 +6,9 @@ const {
   getConcerts,
   getAfterParties,
   getMerchandiseStalls,
+  getConcertsByArtistAndCity,
+  getMerchandiseStallsByStallName,
+  getAfterPartiesByCity,
 } = require("./controllers/tourController");
 const { sequelize } = require("./models");
 
@@ -19,6 +22,9 @@ app.get("/tour/:id", getTour);
 app.get("/data/concerts", getConcerts);
 app.get("/data/afterParties", getAfterParties);
 app.get("/data/merchandiseStalls", getMerchandiseStalls);
+app.get("/concerts/search", getConcertsByArtistAndCity);
+app.get("/merchandiseStalls/search", getMerchandiseStallsByStallName);
+app.get("/afterParties/search", getAfterPartiesByCity);
 
 sequelize
   .authenticate()
